@@ -1805,32 +1805,43 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   .menu__foot .btn { display: none; }
 
   /* В широкий кадр на телефоне попадает именно композиция с тортом. */
-  .hero { --slide-time: 4s; }
+  .hero { --slide-time: 2s; }
   .slide--scene img { object-position: 83% 20%; }
   .hero__foot {
     position: absolute;
     z-index: 4;
     top: calc(var(--header-h) + 18px);
-    right: var(--gutter);
-    left: auto;
-    display: block;
-    width: min(50%, 220px);
+    right: auto;
+    left: var(--gutter);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: min(62%, 240px);
     padding: 0;
-    text-align: right;
-    pointer-events: none;
+    text-align: left;
   }
-  .hero__pause,
-  .hero__dots { display: none; }
+  .hero__pause { display: none; }
+  .hero__dots {
+    display: flex;
+    order: 2;
+    gap: 4px;
+    margin: 0 !important;
+  }
+  .hero__dots button { width: 31px; height: 12px; }
+  .hero__dots span { background: rgb(255 246 229 / .5); }
   .hero__caption {
     display: inline-flex;
+    order: 1;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 5px;
     padding: 9px 11px;
     background: rgb(38 11 7 / .38);
     color: var(--cream);
     font-size: clamp(.95rem, 3.8vw, 1.1rem);
     line-height: 1.05;
+    text-align: left;
     text-shadow: 0 1px 12px rgb(0 0 0 / .4);
   }
   .hero__caption-meta { margin: 0; color: var(--cream-muted); font-size: .75rem; }
