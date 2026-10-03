@@ -444,6 +444,7 @@
     var applicationText = $('[data-application-text]');
     var applicationHint = $('[data-application-hint]');
     var emailLink = $('[data-application-email]');
+    var telegramWebLink = $('[data-application-telegram-web]');
     var composedText = '';
     submitBtn.disabled = false;
     var pad = function (n) { return (n < 10 ? '0' : '') + n; };
@@ -518,10 +519,14 @@
       field.style.position = 'fixed';
       field.style.opacity = '0';
       document.body.appendChild(field);
+      var previousFocus = document.activeElement;
+      field.focus({ preventScroll: true });
       field.select();
+      field.setSelectionRange(0, field.value.length);
       var copied = false;
       try { copied = document.execCommand('copy'); } catch (error) { copied = false; }
       field.remove();
+      if (previousFocus && previousFocus.focus) previousFocus.focus({ preventScroll: true });
       if (copied) return Promise.resolve();
       if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(composedText);
       return Promise.reject(new Error('copy failed'));
@@ -533,6 +538,9 @@
       composedText = composeApplication();
       applicationText.textContent = composedText;
       emailLink.href = 'mailto:nugaiyagody@mail.ru?subject=' + encodeURIComponent('Заявка с сайта «Нуга & Ягоды»') + '&body=' + encodeURIComponent(composedText);
+      $('[data-application-channel="telegram"]', done).href = 'tg://resolve?domain=Gauf14&text=' + encodeURIComponent(composedText);
+      telegramWebLink.href = 'https://t.me/Gauf14?text=' + encodeURIComponent(composedText);
+      telegramWebLink.hidden = true;
       applicationHint.textContent = '';
       status.textContent = '';
       form.hidden = true;
@@ -542,13 +550,16 @@
     $$('[data-application-channel]', done).forEach(function (button) {
       button.addEventListener('click', function () {
         var channel = button.dataset.applicationChannel;
-        var url = channel === 'max'
-          ? 'https://max.ru/:share?text=' + encodeURIComponent(composedText)
-          : 'https://t.me/Gauf14?text=' + encodeURIComponent(composedText);
+        // Обычная ссылка открывается прямо в пользовательском клике:
+        // ожидание Clipboard Promise может заблокировать запуск приложения.
+        telegramWebLink.hidden = channel !== 'telegram';
+        applicationHint.textContent = 'Копируем текст заявки…';
         copyApplication().then(function () {
-          window.location.assign(url);
+          applicationHint.textContent = channel === 'max'
+            ? 'Текст заявки скопирован. Вставьте его в открывшийся чат MAX и отправьте.'
+            : 'Текст заявки скопирован. Если Telegram не подставил его, вставьте текст в чат и отправьте.';
         }).catch(function () {
-          window.location.assign(url);
+          applicationHint.textContent = 'Не удалось скопировать заявку автоматически. Выделите текст заявки выше, скопируйте и вставьте его в чат.';
         });
       });
     });
