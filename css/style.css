@@ -1546,7 +1546,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 #about .trust__grid > .block__title { margin: 0; max-width: none; }
 #about .trust__body { padding-top: 0; }
 #about .trust__slice {
-  width: 80%;
+  width: 100%;
   max-width: none;
   margin-top: clamp(12px, 1.2vw, 22px);
   aspect-ratio: 16 / 9;
