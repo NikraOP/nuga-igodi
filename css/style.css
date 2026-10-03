@@ -325,7 +325,7 @@ ul, ol { padding: 0; list-style: none; }
 }
 .wheel__track { position: absolute; inset: 0; }
 .wheel__item { position: absolute; left: 50%; bottom: 6%; height: 90%; will-change: transform, opacity, filter; }
-.wheel__item img { height: 100%; width: auto; max-width: none; object-fit: contain; pointer-events: none; filter: drop-shadow(0 30px 26px rgb(0 0 0 / .55)); }
+.wheel__item img { height: 100%; width: auto; max-width: none; object-fit: contain; pointer-events: none; filter: none; }
 .wheel__controls { display: flex; align-items: center; gap: 24px; margin-top: 28px; }
 .wheel__count { min-width: 80px; font: 400 1.125rem/1 var(--serif); color: var(--cream-muted); font-variant-numeric: tabular-nums; }
 .wheel__count span { color: var(--cream); }
