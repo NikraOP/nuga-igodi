@@ -527,7 +527,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   background-color: var(--bg-deep);
   background-image:
     linear-gradient(to bottom, #260b07, rgb(38 11 7 / .88) 16%, rgb(38 11 7 / .68) 40%, rgb(38 11 7 / .48) 100%),
-    url("../assets/img/order/order-velvet-full.png");
+    url("../assets/img/order/order-velvet-full.webp");
   background-position: center, center bottom;
   background-size: 100% 100%, cover;
   background-repeat: no-repeat;
@@ -1258,21 +1258,21 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 .block--milk .cake--larger-photo .cake__photo .cake__image--transparent { transform: scale(1.08); }
 .block--milk .cake--larger-photo:hover .cake__photo .cake__image--transparent,
 .block--milk .cake--larger-photo:focus-within .cake__photo .cake__image--transparent { transform: scale(1.13); }
-.block--milk .cake--larger-photo .cake__photo img[src$="/gold-leaves.png"] { transform: scale(.96); }
-.block--milk .cake--larger-photo:hover .cake__photo img[src$="/gold-leaves.png"],
-.block--milk .cake--larger-photo:focus-within .cake__photo img[src$="/gold-leaves.png"] { transform: scale(1); }
-.block--milk .cake--larger-photo .cake__photo img[src$="/marble-roses.png"] { transform: scale(.94); }
-.block--milk .cake--larger-photo:hover .cake__photo img[src$="/marble-roses.png"],
-.block--milk .cake--larger-photo:focus-within .cake__photo img[src$="/marble-roses.png"] { transform: scale(.98); }
-.block--milk .cake__photo img[src$="/petals-rings.png"],
-.block--milk .cake__photo img[src$="/rings-pleats.png"],
-.block--milk .cake__photo img[src$="/mr-mrs-pleats.png"] { transform: scale(1.06); }
-.block--milk .cake:hover .cake__photo img[src$="/petals-rings.png"],
-.block--milk .cake:hover .cake__photo img[src$="/rings-pleats.png"],
-.block--milk .cake:hover .cake__photo img[src$="/mr-mrs-pleats.png"],
-.block--milk .cake:focus-within .cake__photo img[src$="/petals-rings.png"],
-.block--milk .cake:focus-within .cake__photo img[src$="/rings-pleats.png"],
-.block--milk .cake:focus-within .cake__photo img[src$="/mr-mrs-pleats.png"] { transform: scale(1.1); }
+.block--milk .cake--larger-photo .cake__photo img[src$="/gold-leaves.webp"] { transform: scale(.96); }
+.block--milk .cake--larger-photo:hover .cake__photo img[src$="/gold-leaves.webp"],
+.block--milk .cake--larger-photo:focus-within .cake__photo img[src$="/gold-leaves.webp"] { transform: scale(1); }
+.block--milk .cake--larger-photo .cake__photo img[src$="/marble-roses.webp"] { transform: scale(.94); }
+.block--milk .cake--larger-photo:hover .cake__photo img[src$="/marble-roses.webp"],
+.block--milk .cake--larger-photo:focus-within .cake__photo img[src$="/marble-roses.webp"] { transform: scale(.98); }
+.block--milk .cake__photo img[src$="/petals-rings.webp"],
+.block--milk .cake__photo img[src$="/rings-pleats.webp"],
+.block--milk .cake__photo img[src$="/mr-mrs-pleats.webp"] { transform: scale(1.06); }
+.block--milk .cake:hover .cake__photo img[src$="/petals-rings.webp"],
+.block--milk .cake:hover .cake__photo img[src$="/rings-pleats.webp"],
+.block--milk .cake:hover .cake__photo img[src$="/mr-mrs-pleats.webp"],
+.block--milk .cake:focus-within .cake__photo img[src$="/petals-rings.webp"],
+.block--milk .cake:focus-within .cake__photo img[src$="/rings-pleats.webp"],
+.block--milk .cake:focus-within .cake__photo img[src$="/mr-mrs-pleats.webp"] { transform: scale(1.1); }
 
 @media (min-width: 900px) {
   #tasting .tasting { display: grid; grid-template-columns: minmax(0, .9fr) minmax(430px, 50rem); column-gap: clamp(48px, 6vw, 120px); }
@@ -1765,8 +1765,8 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   transform: none;
 }
 .block--milk .cake--generated:hover .cake__photo img { transform: scale(1.035); }
-.block--milk .cake--generated .cake__photo img[src$="/strawberry-vintage.png"] { transform: scale(.84); }
-.block--milk .cake--generated:hover .cake__photo img[src$="/strawberry-vintage.png"] { transform: scale(.88); }
+.block--milk .cake--generated .cake__photo img[src$="/strawberry-vintage.webp"] { transform: scale(.84); }
+.block--milk .cake--generated:hover .cake__photo img[src$="/strawberry-vintage.webp"] { transform: scale(.88); }
 .block--milk .cake--generated .cake__buy { margin-top: 8px; }
 .block--milk .cake--wave .cake__photo img { padding: 4px; }
 .block--milk .cake--catalog-details {

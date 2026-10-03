@@ -617,12 +617,12 @@
   /* ---------- Каталог: прозрачные фотографии тортов ---------- */
   /* Присланные полноразмерные фотографии для оставшихся моделей. */
   var providedCatalogPhotos = {
-    'Торт с лепестками и кольцами': ['petals-rings.png', 'Белый торт с лепестками, золотыми кольцами и топпером Mr & Mrs'],
-    'Трёхъярусный торт с золотыми листьями': ['gold-leaves.png', 'Белый трёхъярусный торт с золотыми листьями'],
-    'Торт с плиссе, рюшами и кольцами': ['rings-pleats.png', 'Белый торт с плиссе, рюшами и золотыми кольцами'],
-    'Двухъярусный торт с плиссе и топпером Mr & Mrs': ['mr-mrs-pleats.png', 'Белый двухъярусный торт с плиссе и топпером Mr & Mrs'],
-    'Мраморный торт с белыми розами': ['marble-roses.png', 'Белый мраморный торт с розами и лепестками'],
-    'Торт с ранункулюсами': ['pastel-flowers.png', 'Двухъярусный торт с розовым мрамором и цветами']
+    'Торт с лепестками и кольцами': ['petals-rings.webp', 'Белый торт с лепестками, золотыми кольцами и топпером Mr & Mrs'],
+    'Трёхъярусный торт с золотыми листьями': ['gold-leaves.webp', 'Белый трёхъярусный торт с золотыми листьями'],
+    'Торт с плиссе, рюшами и кольцами': ['rings-pleats.webp', 'Белый торт с плиссе, рюшами и золотыми кольцами'],
+    'Двухъярусный торт с плиссе и топпером Mr & Mrs': ['mr-mrs-pleats.webp', 'Белый двухъярусный торт с плиссе и топпером Mr & Mrs'],
+    'Мраморный торт с белыми розами': ['marble-roses.webp', 'Белый мраморный торт с розами и лепестками'],
+    'Торт с ранункулюсами': ['pastel-flowers.webp', 'Двухъярусный торт с розовым мрамором и цветами']
   };
   var catalogCards = $$('.cakes .cake:not(.cake--generated)');
   catalogCards.forEach(function (card) {
@@ -636,7 +636,7 @@
     image.removeAttribute('sizes');
     image.classList.add('cake__image--transparent');
     card.classList.add('cake--transparent');
-    if (providedPhoto[0] === 'gold-leaves.png' || providedPhoto[0] === 'marble-roses.png') {
+    if (providedPhoto[0] === 'gold-leaves.webp' || providedPhoto[0] === 'marble-roses.webp') {
       card.classList.add('cake--larger-photo');
     }
     var buy = $('.cake__buy', card);
@@ -645,7 +645,7 @@
       if (price) card.appendChild(price);
       buy.remove();
     }
-    if (providedPhoto[0] === 'pastel-flowers.png' || providedPhoto[0] === 'marble-roses.png') card.classList.add('cake--focus');
+    if (providedPhoto[0] === 'pastel-flowers.webp' || providedPhoto[0] === 'marble-roses.webp') card.classList.add('cake--focus');
   });
 
   /* ---------- Плавное появление секций снизу ---------- */
