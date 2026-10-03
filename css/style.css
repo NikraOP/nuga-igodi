@@ -2020,9 +2020,9 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 
 /* Единый SVG-стиль контактов в заявке и футере. */
 #i-max circle,
-#i-telegram circle { fill: #260b07; }
+#i-telegram circle { fill: var(--messenger-bg, #260b07); }
 #i-max path,
-#i-telegram path { fill: #ede5d3; stroke: none; }
+#i-telegram path { fill: var(--messenger-glyph, #ede5d3); stroke: none; }
 #i-max path { transform-origin: 0 0; transform: translate(9.955px, 9.169px) scale(.391791); }
 #order .form-done__icon,
 .footer__messenger-icon { background: #260b07; color: #ede5d3; }
@@ -2030,3 +2030,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 #order .form-done__icon--max .icon,
 #order .form-done__icon--telegram .icon,
 .footer__messenger-icon .icon { width: 100%; height: 100%; stroke: none; }
+
+.footer__messenger-icon { --messenger-bg: transparent; --messenger-glyph: #fff; background: transparent; }
+#order .form-done__icon--max,
+#order .form-done__icon--telegram { --messenger-bg: #c88b5f; background: #c88b5f; }
