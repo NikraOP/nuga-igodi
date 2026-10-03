@@ -1723,7 +1723,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 #order .form-done__preview { display: grid; gap: 8px; padding: 18px 0; border-top: 1px solid #bda89a; border-bottom: 1px solid #bda89a; background: transparent; }
 #order .form-done__label { color: #6e5b50; font-size: .875rem; }
 #order .form-done__preview pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 400 .9375rem/1.5 var(--sans); }
-#order .form-done__actions { display: grid; gap: 0; border-top: 1px solid #bda89a; }
+#order .form-done__actions { display: grid; gap: 0; border-top: 0; }
 #order .form-done__action { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 70px; padding: 10px 0; border: 0; border-bottom: 1px solid #bda89a; border-radius: 0; background: transparent; color: #35170f; font: inherit; text-align: left; text-decoration: none; cursor: pointer; transition: color .2s, background-color .2s; }
 #order .form-done__action:hover { color: #9d5d3d; background: rgb(157 93 61 / .05); }
 #order .form-done__action:focus-visible,
@@ -2032,5 +2032,4 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 .footer__messenger-icon .icon { width: 100%; height: 100%; stroke: none; }
 
 .footer__messenger-icon { --messenger-bg: transparent; --messenger-glyph: #fff; background: transparent; }
-#order .form-done__icon--max,
-#order .form-done__icon--telegram { --messenger-bg: #c88b5f; background: #c88b5f; }
+#order .form-done__icon { --messenger-bg: #c88b5f; background: #c88b5f; }
