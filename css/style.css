@@ -1730,7 +1730,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 #order .form-done__action strong { font-size: 1rem; font-weight: 650; }
 #order .form-done__action small { color: #806f66; font-size: .8125rem; line-height: 1.3; }
 #order .form-done__icon { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #35170f; color: var(--cream); font: 700 1.125rem/1 var(--sans); }
-#order .form-done__icon--email { background: #9d5d3d; }
+#order .form-done__icon--email { background: #260b07; }
 #order .form-done__icon--max,
 #order .form-done__icon--telegram { overflow: hidden; isolation: isolate; }
 #order .form-done__icon img,
@@ -1908,3 +1908,16 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   }
   .footer__messenger-icon { background: #9d5d3d; }
 }
+
+/* Единый SVG-стиль контактов в заявке и футере. */
+#i-max circle,
+#i-telegram circle { fill: #260b07; }
+#i-max path,
+#i-telegram path { fill: #ede5d3; stroke: none; }
+#i-max path { transform-origin: 0 0; transform: translate(9.955px, 9.169px) scale(.391791); }
+#order .form-done__icon,
+.footer__messenger-icon { background: #260b07; color: #ede5d3; }
+#order .form-done__icon .icon { width: 20px; height: 20px; }
+#order .form-done__icon--max .icon,
+#order .form-done__icon--telegram .icon,
+.footer__messenger-icon .icon { width: 100%; height: 100%; stroke: none; }
