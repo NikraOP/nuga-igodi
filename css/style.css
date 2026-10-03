@@ -1639,8 +1639,8 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 #partners .partners__note { font-size: .875rem; }
 #partners .partners__body { min-width: 0; }
 @media (min-width: 900px) {
-  /* Горизонтальный кадр для десктопа показан целиком в пределах блока. */
-  #partners .partners__visual img { object-fit: contain; object-position: center; }
+  /* На широких экранах фотография заполняет блок до краёв без полей. */
+  #partners .partners__visual img { object-fit: cover; object-position: center; transform: scale(1.04); }
 }
 @media (min-width: 1200px) {
   #partners .partners { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, .92fr) minmax(0, 1fr); gap: clamp(22px, 1.6vw, 36px); align-items: center; min-height: clamp(570px, 42vw, 750px); }
