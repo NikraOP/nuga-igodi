@@ -1792,3 +1792,87 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   border: 0;
   font-weight: 600;
 }
+
+/* ---------- Мобильная версия ---------- */
+@keyframes mobile-caption-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 899px) {
+  /* Меню остаётся компактным, без дублирующей кнопки заказа. */
+  .menu__list a { padding-block: 10px; font-size: 1.7rem; }
+  .menu__foot .btn { display: none; }
+
+  /* В широкий кадр на телефоне попадает именно композиция с тортом. */
+  .hero { --slide-time: 4s; }
+  .slide--scene img { object-position: 83% 20%; }
+  .hero__foot {
+    position: absolute;
+    z-index: 4;
+    top: calc(var(--header-h) + 18px);
+    right: var(--gutter);
+    left: auto;
+    display: block;
+    width: min(50%, 220px);
+    padding: 0;
+    text-align: right;
+    pointer-events: none;
+  }
+  .hero__pause,
+  .hero__dots { display: none; }
+  .hero__caption {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    padding: 9px 11px;
+    background: rgb(38 11 7 / .38);
+    color: var(--cream);
+    font-size: clamp(.95rem, 3.8vw, 1.1rem);
+    line-height: 1.05;
+    text-shadow: 0 1px 12px rgb(0 0 0 / .4);
+  }
+  .hero__caption-meta { margin: 0; color: var(--cream-muted); font-size: .75rem; }
+  .hero__caption.is-changing { animation: mobile-caption-in .55s var(--ease); }
+  .hero__service-bar { justify-content: center; width: 100%; }
+
+  /* На телефоне каталог начинается с пяти карточек. */
+  .cakes:not(.is-expanded) > .cake:nth-child(n + 6) { display: none; }
+  .cakes.is-expanded > .cake:nth-child(n + 6) { display: grid; }
+
+  /* Текст и CTA дегустации выровнены по одной левой линии. */
+  #tasting .tasting__text { padding-left: 0; }
+  #tasting .tasting__cta {
+    width: min(78%, 22rem);
+    min-width: 0;
+    min-height: 48px;
+    margin-top: 26px;
+    padding-inline: 18px;
+  }
+
+  /* Карусель начинок не выходит за края экрана. */
+  .wheel__stage { height: clamp(276px, 78vw, 332px); }
+  .wheel__item { bottom: 5%; height: 85%; }
+  .wheel__stage::after { width: 118%; }
+
+  /* Вертикальный и горизонтальный кадры в блоке доверия равны по роли. */
+  #about .trust__slice { width: 100%; aspect-ratio: 4 / 3; }
+  #about .trust__slice img { object-position: 50% 35%; }
+
+  /* Для агентств сохраняем крупный чистый кадр без затемнения. */
+  #partners { padding-top: 320px; }
+  #partners .partners__visual { height: 320px; }
+  #partners .partners__visual img { object-position: 50% 34%; }
+  #partners .partners__visual::after { background: none; }
+
+  /* Иконки каналов — не эмодзи и не чёрные, а в палитре сайта. */
+  #order .form-done__icon { background: #9d5d3d; color: var(--cream); }
+  #order .form-done__icon .icon { width: 20px; height: 20px; }
+  #order .form-done__icon img,
+  .footer__messenger-icon img {
+    filter: grayscale(1) sepia(1) saturate(560%) hue-rotate(330deg) brightness(.66) contrast(1.15);
+    mix-blend-mode: normal;
+  }
+  .footer__messenger-icon { background: #9d5d3d; }
+}

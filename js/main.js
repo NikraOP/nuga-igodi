@@ -64,6 +64,11 @@
       dots[cur].setAttribute('aria-current', 'true');
       titleEl.textContent = slides[cur].dataset.title;
       metaEl.textContent = slides[cur].dataset.meta;
+      if (caption) {
+        caption.classList.remove('is-changing');
+        void caption.offsetWidth;
+        caption.classList.add('is-changing');
+      }
     };
 
     // полоса заполняется CSS-анимацией; когда дошла до конца, переключаем
@@ -98,21 +103,31 @@
       if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
       sx = null;
     }, { passive: true });
+    show(0);
   }
 
   /* ---------- Каталог: показать ещё ---------- */
   var moreBtn = $('[data-cakes-more]');
   if (moreBtn) {
+    var cakesList = $('[data-cakes]');
+    var mobileCatalog = window.matchMedia('(max-width: 639px)');
     var remainingCakes = $$('[data-cakes] [data-more]').length;
-    moreBtn.textContent = 'Показать ещё ' + remainingCakes;
+    var mobilePreviewExtra = cakesList ? Math.max(0, $$('.cake', cakesList).length - remainingCakes - 5) : 0;
+    var updateMoreLabel = function () {
+      var count = remainingCakes + (mobileCatalog.matches ? mobilePreviewExtra : 0);
+      moreBtn.textContent = 'Показать ещё ' + count;
+      moreBtn.parentElement.hidden = !count;
+    };
+    updateMoreLabel();
+    mobileCatalog.addEventListener('change', updateMoreLabel);
     moreBtn.addEventListener('click', function () {
       var hidden = $$('[data-cakes] [data-more]');
       hidden.forEach(function (el) { el.hidden = false; el.removeAttribute('data-more'); });
+      if (cakesList) cakesList.classList.add('is-expanded');
       moreBtn.parentElement.hidden = true;
       var firstTitle = hidden[0] && $('.cake__title', hidden[0]);
       if (firstTitle) { firstTitle.tabIndex = -1; firstTitle.focus({ preventScroll: true }); }
     });
-    moreBtn.parentElement.hidden = !remainingCakes;
   }
 
   /* ---------- Тема заявки ---------- */

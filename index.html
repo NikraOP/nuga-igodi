@@ -26,7 +26,7 @@
   <link rel="preload" href="assets/fonts/oranienbaum-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jost-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="assets/img/hero/hero-slide-rings-wide.webp" fetchpriority="high">
-  <link rel="stylesheet" href="css/style.css?v=20261003-7">
+  <link rel="stylesheet" href="css/style.css?v=20261003-8">
   <script>document.documentElement.classList.add('js');</script>
 
   <script type="application/ld+json">
@@ -57,6 +57,7 @@
     <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3L20 15.5V19a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></symbol>
   </svg>
 
   <a class="skip" href="#main">Перейти к содержимому</a>
@@ -102,7 +103,6 @@
     </ul>
     <div class="menu__foot">
       <a class="menu__phone" href="tel:+79169156445">+7 916 915-64-45</a>
-      <a class="btn btn--cream" href="#order" data-order="tasting">Заказать дегустацию <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 
@@ -691,8 +691,8 @@
             <div class="form-done__actions" aria-label="Как отправить заявку">
               <button class="form-done__action" type="button" data-application-channel="max"><span class="form-done__icon form-done__icon--max" aria-hidden="true"><img src="assets/img/icons/max-provided.png" alt=""></span><span><strong>MAX</strong><small>Откроем MAX с текстом заявки — выберите наш чат</small></span></button>
               <button class="form-done__action" type="button" data-application-channel="telegram"><span class="form-done__icon form-done__icon--telegram" aria-hidden="true"><img src="assets/img/icons/telegram-provided.png" alt=""></span><span><strong>Telegram</strong><small>Откроем чат с текстом заявки</small></span></button>
-              <a class="form-done__action" data-application-email href="mailto:nugaiyagody@mail.ru"><span class="form-done__icon form-done__icon--email" aria-hidden="true">✉</span><span><strong>Написать на почту</strong><small>nugaiyagody@mail.ru</small></span></a>
-              <a class="form-done__action" href="tel:+79169156445"><span class="form-done__icon form-done__icon--phone" aria-hidden="true">☎</span><span><strong>Позвонить</strong><small>+7 916 915-64-45</small></span></a>
+              <a class="form-done__action" data-application-email href="mailto:nugaiyagody@mail.ru"><span class="form-done__icon form-done__icon--email" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span><span><strong>Написать на почту</strong><small>nugaiyagody@mail.ru</small></span></a>
+              <a class="form-done__action" href="tel:+79169156445"><span class="form-done__icon form-done__icon--phone" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></span><span><strong>Позвонить</strong><small>+7 916 915-64-45</small></span></a>
             </div>
             <p class="form-done__hint" data-application-hint role="status" aria-live="polite"></p>
             <button class="btn btn--ghost form-done__edit" type="button" data-application-edit>Изменить заявку</button>
@@ -739,6 +739,6 @@
     <a class="toast__link" href="#order" data-toast-link>К заявке</a>
   </div>
 
-  <script src="js/main.js?v=20261003-7" defer></script>
+  <script src="js/main.js?v=20261003-8" defer></script>
 </body>
 </html>
