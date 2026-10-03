@@ -1,0 +1,15 @@
+# Local drafts and QA artifacts are kept on this computer, not in the deploy repo.
+/site-live-fix/
+/site-update-staging/
+/source/
+/tools/
+/chrome-profile*/
+/edge-profile/
+
+# Older standalone design experiment and source renders.
+/app.js
+/data.js
+/styles.css
+/server.cjs
+/*.png
+
