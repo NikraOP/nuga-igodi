@@ -1958,7 +1958,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   #partners .partners__visual { overflow: hidden; }
 }
 @media (min-width: 1200px) and (max-width: 2086px) {
-  #partners .partners__head { margin-left: 0; padding-left: 0; min-width: 0; align-self: start; }
+  #partners .partners__head { margin-left: 0; padding-left: 0; min-width: 0; align-self: center; transform: translateY(-15px); }
   #partners .partners__head .block__title { max-width: 100%; font-size: clamp(2.5rem, 3.1vw, 4rem); line-height: 1; }
   #partners .partners__head .block__sub { max-width: 100%; }
 }
