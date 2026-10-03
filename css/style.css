@@ -1877,9 +1877,9 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   .wheel__item { bottom: 5%; height: 85%; }
   .wheel__stage::after { width: 118%; }
 
-  /* Вертикальный и горизонтальный кадры в блоке доверия равны по роли. */
-  #about .trust__slice { width: 100%; aspect-ratio: 4 / 3; }
-  #about .trust__slice img { object-position: 50% 35%; }
+  /* Горизонтальный кадр показываем целиком, без обрезания. */
+  #about .trust__slice { width: 100%; aspect-ratio: auto; }
+  #about .trust__slice img { height: auto; object-fit: contain; }
 
   /* Агентствам: на фотографии только заголовок и описание; условия ниже. */
   #partners { --partners-mobile-photo-h: clamp(320px, 78vw, 400px); padding: 0 0 56px; background: #260b07; }
@@ -1907,6 +1907,10 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
     mix-blend-mode: normal;
   }
   .footer__messenger-icon { background: #9d5d3d; }
+}
+
+@media (max-width: 620px) {
+  #about .trust__slice { width: min(100%, 22rem); }
 }
 
 /* Единый SVG-стиль контактов в заявке и футере. */
