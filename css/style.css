@@ -1805,7 +1805,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   .menu__foot .btn { display: none; }
 
   /* В широкий кадр на телефоне попадает именно композиция с тортом. */
-  .hero { --slide-time: 2s; }
+  .hero { --slide-time: 4s; }
   .slide--scene img { object-position: 83% 20%; }
   .hero__foot {
     position: absolute;
@@ -1836,8 +1836,8 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
-    padding: 9px 11px;
-    background: rgb(38 11 7 / .38);
+    padding: 0;
+    background: transparent;
     color: var(--cream);
     font-size: clamp(.95rem, 3.8vw, 1.1rem);
     line-height: 1.05;
