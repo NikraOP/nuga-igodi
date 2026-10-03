@@ -1937,6 +1937,18 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   .calc__range-limits { display: flex; justify-content: space-between; font-size: .75rem; color: #796859; }
 }
 
+/* Хедер среднего десктопа: меню участвует в раскладке и не перекрывает контакты. */
+@media (min-width: 1500px) and (max-width: 1950px) {
+  .header__row { padding-inline: clamp(28px, 3vw, 58px); gap: 20px; }
+  .header__row .logo,
+  .header__row .header__phone,
+  .header__row .header__cta { flex-shrink: 0; }
+  .header__row .nav { position: static; transform: none; flex: 1 1 auto; justify-content: center; gap: clamp(12px, 1vw, 19px); }
+  .header__row .nav a { font-size: .875rem; }
+  .header__row .header__phone { margin-left: 0; font-size: .875rem; }
+  .header__row .header__cta { padding-inline: 20px; font-size: .875rem; }
+}
+
 /* Единый SVG-стиль контактов в заявке и футере. */
 #i-max circle,
 #i-telegram circle { fill: #260b07; }
