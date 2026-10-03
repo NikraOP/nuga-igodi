@@ -1739,6 +1739,12 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 #order .form-done__edit { justify-self: start; color: #35170f; box-shadow: inset 0 0 0 1px #35170f; }
 .footer__messenger { display: flex; align-items: center; gap: 10px; }
 .footer__messenger-icon { display: block; flex: none; width: 28px; height: 28px; overflow: hidden; isolation: isolate; border-radius: 50%; background: #9d5d3d; }
+.form-done__icon--max,
+.form-done__icon--telegram,
+.footer__messenger-icon { background: transparent; }
+.form-done__icon--max .icon,
+.form-done__icon--telegram .icon,
+.footer__messenger-icon .icon { display: block; width: 100%; height: 100%; }
 @media (min-width: 1280px) { .footer__address { white-space: nowrap; } }
 
 /* Единый размер заголовков разделов на широком экране. */
