@@ -1937,6 +1937,16 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   .calc__range-limits { display: flex; justify-content: space-between; font-size: .75rem; color: #796859; }
 }
 
+/* Блок доверия: изображения остаются внутри своих колонок на средних экранах. */
+@media (min-width: 900px) and (max-width: 1492px) {
+  #about .trust__grid { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); column-gap: clamp(24px, 3vw, 44px); align-items: start; }
+  #about .trust__grid > .block__title { transform: none; }
+  #about .trust__photo--portrait { position: static; top: auto; width: 100%; min-width: 0; align-self: start; }
+  #about .trust__photo--portrait img { height: auto; }
+  #about .trust__body { min-width: 0; width: 100%; }
+  #about .trust__slice { min-width: 0; }
+}
+
 /* Калькулятор на узких экранах: выбор порции не сжимается рядом с результатом. */
 @media (max-width: 975px) {
   #calc .calc__panel { grid-template-columns: minmax(0, 1fr); }
