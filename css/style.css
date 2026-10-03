@@ -1937,6 +1937,21 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   .calc__range-limits { display: flex; justify-content: space-between; font-size: .75rem; color: #796859; }
 }
 
+/* Агентствам: заголовок не выходит из своей колонки, фото без фонового шва. */
+@media (min-width: 900px) and (max-width: 2086px) {
+  #partners .partners__visual { overflow: hidden; }
+}
+@media (min-width: 1200px) and (max-width: 2086px) {
+  #partners .partners__head { margin-left: 0; padding-left: 0; min-width: 0; }
+  #partners .partners__head .block__title { max-width: 100%; font-size: clamp(2.5rem, 3.1vw, 4rem); line-height: 1; }
+  #partners .partners__head .block__sub { max-width: 100%; }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  #partners.velvet::before { display: none; }
+  #partners .partners__visual { overflow: hidden; }
+  #partners .partners__visual img { transform: none; }
+}
+
 /* Блок доверия: изображения остаются внутри своих колонок на средних экранах. */
 @media (min-width: 900px) and (max-width: 1492px) {
   #about .trust__grid { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); column-gap: clamp(24px, 3vw, 44px); align-items: start; }
