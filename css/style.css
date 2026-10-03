@@ -1937,6 +1937,19 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   .calc__range-limits { display: flex; justify-content: space-between; font-size: .75rem; color: #796859; }
 }
 
+/* Дегустация на средних экранах: читаемая колонка вместо узкой полосы текста. */
+@media (min-width: 900px) and (max-width: 1884px) {
+  #tasting .tasting__text { grid-column: 7 / -1; grid-row: 2; padding-left: 0; min-width: 0; margin-top: 0; }
+  #tasting .tasting__copy { width: 100%; max-width: none; }
+  #tasting .tasting__desktop-break { display: none; }
+  #tasting .tasting__cta { grid-column: 7 / -1; grid-row: 3; width: auto; max-width: 100%; min-width: 0; justify-self: start; margin-top: 0; transform: none; padding-inline: 24px; }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  #tasting .tasting__bottom-gallery { grid-column: 1 / -1; grid-row: 2; }
+  #tasting .tasting__text { grid-column: 1 / -1; grid-row: 3; }
+  #tasting .tasting__cta { grid-column: 1 / -1; grid-row: 4; }
+}
+
 /* Хедер среднего десктопа: меню участвует в раскладке и не перекрывает контакты. */
 @media (min-width: 1500px) and (max-width: 1950px) {
   .header__row { padding-inline: clamp(28px, 3vw, 58px); gap: 20px; }
