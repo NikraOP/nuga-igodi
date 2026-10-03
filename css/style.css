@@ -546,7 +546,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 .footer a { text-decoration: none; transition: color .3s; }
 .footer a:hover { color: var(--cream); }
 .footer__phone { font: inherit; color: var(--cream-muted); }
-.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: .8125rem; }
+.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; margin-top: 56px; padding-top: 20px; border-top: 0; font-size: .8125rem; }
 @media (min-width: 700px) and (max-width: 1099px) {
   .footer__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .footer__contact { grid-column: 2; }
