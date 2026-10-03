@@ -477,7 +477,7 @@
       var name = $('#f-name'), consent = $('#f-consent');
       if (setError(name, $('#f-name-err'), !name.value.trim())) bad.push(name);
       if (setError(phone, $('#f-phone-err'), digits(phone.value).length !== 11)) bad.push(phone);
-      if (setError(date, $('#f-date-err'), !!date.value && date.value < minStr)) bad.push(date);
+      if (setError(date, $('#f-date-err'), !date.value || date.value < minStr)) bad.push(date);
       if (setError(consent, $('#f-consent-err'), !consent.checked)) bad.push(consent);
       return bad;
     };
