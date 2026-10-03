@@ -542,7 +542,9 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
 .footer__col h2 { color: var(--cream); font: 600 1rem/1.3 var(--sans); margin-bottom: 8px; }
 .footer__fine { font-size: .875rem; line-height: 1.45; }
 .footer__pickup .footer__fine { margin-top: 10px; }
-.footer__route { text-decoration: underline !important; text-underline-offset: 4px; }
+.footer__route { gap: 8px; text-decoration: none !important; }
+.footer__route span { text-decoration: underline; text-underline-offset: 4px; }
+.footer__route-arrow { display: block; flex: none; width: 18px; height: 18px; }
 .footer a { text-decoration: none; transition: color .3s; }
 .footer a:hover { color: var(--cream); }
 .footer__phone { font: inherit; color: var(--cream-muted); }
