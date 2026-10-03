@@ -405,6 +405,8 @@
   var calc = $('[data-calc]');
   if (calc) {
     var num = $('#calc-guests');
+    var guestsRange = $('#calc-guests-range');
+    var guestsCount = $('[data-calc-guests-count]');
     var out = $('[data-calc-kg]');
     var formula = $('[data-calc-formula]');
     var presets = $$('[data-preset]', calc);
@@ -413,6 +415,8 @@
       v = Math.max(14, Math.min(500, Math.round(v) || 14));
       value = v;
       if (!fromInput) num.value = v;
+      guestsRange.value = v;
+      guestsCount.textContent = v;
       var portion = parseInt(($('input[name="calc-portion"]:checked', calc) || {}).value || 150, 10);
       var kg = Math.round(v * portion / 1000 * 2) / 2; // гости × 150 или 200 г, до 0,5 кг
       var txt = fmtKg(kg);
@@ -422,6 +426,7 @@
     };
     num.addEventListener('input', function () { var v = parseInt(num.value, 10); if (!isNaN(v)) update(v, true); });
     num.addEventListener('blur', function () { num.value = value; });
+    guestsRange.addEventListener('input', function () { update(+guestsRange.value); });
     $('[data-calc-minus]').addEventListener('click', function () { update(value - 5); });
     $('[data-calc-plus]').addEventListener('click', function () { update(value + 5); });
     presets.forEach(function (p) { p.addEventListener('click', function () { update(+p.dataset.preset); }); });

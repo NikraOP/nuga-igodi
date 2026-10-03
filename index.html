@@ -26,7 +26,7 @@
   <link rel="preload" href="assets/fonts/oranienbaum-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jost-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="assets/img/hero/hero-slide-rings-wide.webp" fetchpriority="high">
-  <link rel="stylesheet" href="css/style.css?v=20261004-4">
+  <link rel="stylesheet" href="css/style.css?v=20261004-5">
   <script>document.documentElement.classList.add('js');</script>
 
   <script type="application/ld+json">
@@ -495,6 +495,11 @@
                   <input id="calc-guests" type="number" inputmode="numeric" min="14" max="500" value="50">
                   <button type="button" data-calc-plus aria-label="Больше гостей">+</button>
                 </div>
+                <div class="calc__slider">
+                  <output class="calc__guest-count" for="calc-guests-range" data-calc-guests-count>50</output>
+                  <input id="calc-guests-range" type="range" min="14" max="500" step="1" value="50" aria-label="Количество гостей">
+                  <div class="calc__range-limits" aria-hidden="true"><span>14</span><span>500</span></div>
+                </div>
                 <div class="presets" role="group" aria-label="Быстрый выбор числа гостей">
                   <button type="button" data-preset="20">20</button>
                   <button type="button" data-preset="30">30</button>
@@ -741,6 +746,6 @@
     <a class="toast__link" href="#order" data-toast-link>К заявке</a>
   </div>
 
-  <script src="js/main.js?v=20261003-9" defer></script>
+  <script src="js/main.js?v=20261004-1" defer></script>
 </body>
 </html>
