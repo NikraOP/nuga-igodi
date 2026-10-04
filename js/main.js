@@ -570,7 +570,75 @@
     });
   }
 
-  /* ---------- Видео распаковки сета (когда появится) ---------- */
+  /* ---------- Плеер распаковки: сейчас фото, позже источник в data-video ---------- */
+  var player = $('.tasting__hero[data-video]');
+  if (player) {
+    var playerImage = $('img', player);
+    var playerStart = $('[data-player-start]', player);
+    var playerToggle = $('[data-player-toggle]', player);
+    var playerSeek = $('[data-player-seek]', player);
+    var playerTime = $('[data-player-time]', player);
+    var playerLabel = $('[data-player-label]', player);
+    var playerMute = $('[data-player-mute]', player);
+    var playerVideo = null, playerPlaying = false, playerPosition = 0, playerDuration = 12, playerFrame = null, playerLast = 0;
+    var playerClock = function (seconds) { seconds = Math.max(0, Math.floor(seconds)); return Math.floor(seconds / 60) + ':' + ('0' + seconds % 60).slice(-2); };
+    var renderPlayer = function () {
+      playerToggle.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + (playerPlaying ? 'M7 5h4v14H7ZM14 5h4v14h-4Z' : 'm9 5 11 7-11 7Z') + '"/></svg>';
+      playerToggle.setAttribute('aria-label', playerPlaying ? 'Пауза' : playerVideo ? 'Воспроизвести видео' : 'Запустить предпросмотр');
+      playerStart.hidden = playerPlaying;
+      playerSeek.value = playerDuration ? Math.round(playerPosition / playerDuration * 1000) : 0;
+      playerSeek.setAttribute('aria-valuetext', playerClock(playerPosition) + ' из ' + playerClock(playerDuration));
+      playerTime.textContent = playerClock(playerPosition) + ' / ' + playerClock(playerDuration);
+      if (!playerVideo && !reduceMotion) playerImage.style.transform = 'scale(' + (1 + playerPosition / playerDuration * .035) + ')';
+    };
+    var demoTick = function (now) {
+      if (!playerPlaying) return;
+      if (playerLast) playerPosition = Math.min(playerDuration, playerPosition + Math.min(now - playerLast, 100) / 1000);
+      playerLast = now;
+      if (playerPosition >= playerDuration) { playerPlaying = false; playerLast = 0; }
+      renderPlayer();
+      playerFrame = playerPlaying ? requestAnimationFrame(demoTick) : null;
+    };
+    var pausePlayer = function () {
+      if (playerVideo) playerVideo.pause();
+      playerPlaying = false; playerLast = 0;
+      if (playerFrame) cancelAnimationFrame(playerFrame);
+      playerFrame = null; renderPlayer();
+    };
+    var togglePlayer = function () {
+      if (playerPlaying) { pausePlayer(); return; }
+      if (playerPosition >= playerDuration) { playerPosition = 0; if (playerVideo) playerVideo.currentTime = 0; }
+      if (playerVideo) {
+        playerVideo.play().catch(function () { playerLabel.textContent = '· Не удалось запустить видео'; pausePlayer(); });
+      } else { playerPlaying = true; playerLast = 0; renderPlayer(); playerFrame = requestAnimationFrame(demoTick); }
+    };
+    if (player.dataset.video) {
+      playerVideo = document.createElement('video');
+      playerVideo.src = player.dataset.video; playerVideo.poster = player.dataset.poster || playerImage.src;
+      playerVideo.playsInline = true; playerVideo.preload = 'metadata';
+      player.insertBefore(playerVideo, playerImage); playerImage.hidden = true; playerMute.hidden = false;
+      playerLabel.textContent = ''; playerDuration = 0;
+      playerVideo.addEventListener('loadedmetadata', function () { playerDuration = isFinite(playerVideo.duration) ? playerVideo.duration : 0; renderPlayer(); });
+      playerVideo.addEventListener('timeupdate', function () { playerPosition = playerVideo.currentTime; renderPlayer(); });
+      playerVideo.addEventListener('play', function () { playerPlaying = true; renderPlayer(); });
+      playerVideo.addEventListener('pause', function () { playerPlaying = false; renderPlayer(); });
+      playerVideo.addEventListener('ended', pausePlayer);
+      playerVideo.addEventListener('error', function () { playerLabel.textContent = '· Видео недоступно'; pausePlayer(); });
+    }
+    playerStart.addEventListener('click', togglePlayer);
+    playerToggle.addEventListener('click', togglePlayer);
+    playerSeek.addEventListener('input', function () { playerPosition = +playerSeek.value / 1000 * playerDuration; if (playerVideo && playerDuration) playerVideo.currentTime = playerPosition; renderPlayer(); });
+    playerMute.addEventListener('click', function () { if (!playerVideo) return; playerVideo.muted = !playerVideo.muted; playerMute.setAttribute('aria-label', playerVideo.muted ? 'Включить звук' : 'Выключить звук'); playerMute.setAttribute('aria-pressed', String(playerVideo.muted)); });
+    $('[data-player-fullscreen]', player).addEventListener('click', function () {
+      if (document.fullscreenElement) document.exitFullscreen().catch(function () {});
+      else if (player.requestFullscreen) player.requestFullscreen().catch(function () {});
+      else if (playerVideo && playerVideo.webkitEnterFullscreen) playerVideo.webkitEnterFullscreen();
+    });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) pausePlayer(); });
+    renderPlayer();
+  }
+
+  /* ---------- Видео распаковки сета (старый блок) ---------- */
   var media = $('.tasting__media');
   if (media && media.dataset.video) {
     var poster = media.dataset.poster;
