@@ -2038,6 +2038,9 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   #tasting .tasting__hero figcaption { top: 12px; left: 12px; font-size: .75rem; }
 }
 
+#about .pp--diet,
+#fillings .fillings__diet-note { font-size: clamp(1.5rem, 1.1rem + 1vw, 2.25rem); line-height: 1.3; }
+
 /* Единый SVG-стиль контактов в заявке и футере. */
 #i-max circle,
 #i-telegram circle { fill: var(--messenger-bg, #260b07); }
