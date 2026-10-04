@@ -1892,7 +1892,7 @@ input[type="date"].input { -webkit-appearance: none; appearance: none; }
   #partners .partners__visual img { object-fit: contain; object-position: center top; }
   #partners .partners { min-height: 0; grid-template-columns: 1fr; justify-items: start; gap: 0; text-align: left; }
   #partners .partners__head { position: relative; z-index: 1; isolation: isolate; justify-self: start; width: 100%; min-height: 0; margin-right: auto; padding: 26px 0 42px; justify-items: start; text-align: left; }
-  #partners .partners__head::before { content: ""; position: absolute; z-index: -1; inset: 0 calc(-1 * var(--gutter)); background: url('../assets/img/partners/partners-rings-mobile.webp') 40% center / cover no-repeat; }
+  #partners .partners__head::before { content: ""; position: absolute; z-index: -1; inset: 0 calc(-1 * var(--gutter)); background: url('../assets/img/partners/partners-rings-mobile-v2.webp') 40% center / cover no-repeat; }
   #partners .partners__head .block__title,
   #partners .partners__head .block__sub { width: min(54%, 22rem); margin-left: 0; }
   #partners .partners__body { position: relative; z-index: 1; width: 100%; padding-top: 0; justify-items: start; text-align: left; }
