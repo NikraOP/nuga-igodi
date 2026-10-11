@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /send.php
 
-Sitemap: https://wedding.nugayagodi.ru/sitemap.xml
+Sitemap: https://nugaiyagoda-weddings.ru/sitemap.xml
